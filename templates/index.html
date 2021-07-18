@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Maratona News</title>
+  <!-- AQUI IMPORTO UM ESTILO CSS -->
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+
+
+<body>
+  <header>
+    <h1>ALL ABOUT HACKING NEWS</h1>
+    
+    <div>
+      {% if order_by == "news" %}
+      <a href="/?order_by=popular">MOST POPULAR</a>
+      <a href="/?order_by=news"><strong>MOST NEWS</strong></a>
+      
+      {% else %}
+       <a href="/?order_by=popular"><strong>MOST POPULAR</strong></a>
+      <a href="/?order_by=news">MOST NEWS</a>
+      {% endif %}
+    </div>
+  </header>
+
+  
+<!-- #### -->
+<!-- BLOCO DE CODIGO EXEMPLO DE 1 MATÉRIA -->
+  <main>
+    {% for noticia in dic_noticias %}
+      
+      
+      <div>
+
+        <div>
+          <a href="{{noticia.objectID}}">
+            <big><h1 style="color: black">{{noticia.title}}</h1></big>
+          </a></br>
+          
+          <a href="{{noticia.url}}" target="_blank">{{noticia.url}}</a>
+        </div>
+        
+        
+        <div>
+           {{noticia.points}} points | Por: {{noticia.author}} | {{noticia.num_comments}} comentários
+        </div>
+      
+      </div>
+
+      
+      <hr />
+    {% endfor %}
+  </main>
+  
+<!-- ACABA HTML ESTUTURA DE UMA MATERIA -->
+<!-- #### -->
+</body>
+</html>
